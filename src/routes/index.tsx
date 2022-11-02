@@ -2,6 +2,8 @@ import { BrowserRouter,Routes as Switch, Route, Navigate } from "react-router-do
 import { Dashboard } from "../pages/Dashboard/dashboard"
 
 export const Routes = ()=>{
+    
+
     return(
             <Switch>
                 <Route path = '/pagina-incial' element={<Dashboard/>}/>

@@ -8,6 +8,7 @@ export const DarkTheme = createTheme({
             dark:red[800],
             light:red[500],
             contrastText:'#ffffff',
+
         },
         secondary:{
             main: cyan[500],

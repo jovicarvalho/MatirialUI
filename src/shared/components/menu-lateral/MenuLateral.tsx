@@ -1,12 +1,43 @@
 import { Box, Drawer, useTheme, Divider, List, ListItemButton, ListItemIcon, ListItemText, Icon, useMediaQuery } from '@mui/material';
 import React from 'react';
+import { useMatch, useNavigate, useResolvedPath } from 'react-router-dom';
 import { useDrawerContext } from '../../contexts';
+
+
+interface IListItemLinkProps{
+    to:string;
+    icon: string;
+    label: string;
+    onClick: (  () => void) | undefined ;
+}
+
+const ListItemLink: React.FC<IListItemLinkProps> = ({ to, icon, label, onClick}) =>{
+    const navigate = useNavigate();
+    
+    const resolvedPath = useResolvedPath(to);
+    const match = useMatch({path: resolvedPath.pathname, end: false})
+
+    const handleClick = () =>{
+        navigate(to);
+        onClick?.(); 
+    }
+    return(
+        <ListItemButton selected = {!!match} onClick = {handleClick}>
+            <ListItemIcon >
+                <Icon style={{ color: "White" }}> {icon} </Icon>
+            </ListItemIcon>
+            <ListItemText primary={label}/>
+        </ListItemButton>
+
+    )
+
+}
 
 export const MenuLateral: React.FC <{children:React.ReactNode}> = ({ children }) => {
      
     const theme = useTheme();
     const smDown = useMediaQuery (theme.breakpoints.down('sm'));
-    const {isDrawerOpen, toggleDrawerOpen} = useDrawerContext();
+    const {isDrawerOpen, toggleDrawerOpen, drawerOptions} = useDrawerContext();
 
         return (
             <>
@@ -25,12 +56,21 @@ export const MenuLateral: React.FC <{children:React.ReactNode}> = ({ children })
                         <Divider/>
                         <Box flex={1} color='white'>
                             <List component="nav">
-                                <ListItemButton>
-                                <ListItemIcon >
-                                    <Icon style={{ color: "White" }}> home </Icon>
-                                </ListItemIcon>
-                                <ListItemText primary="Página Inicial" />
-                                </ListItemButton>
+                            {drawerOptions.map(drawerOption => (
+                                <ListItemLink
+                                    key={drawerOption.path}
+                                    icon={drawerOption.icon}
+                                    to ={drawerOption.path}
+                                    label ={drawerOption.label}
+                                    onClick = {smDown ? toggleDrawerOpen: undefined}
+                                />))}
+                                
+                             {/*  <ListItemLink
+                                    icon='search'
+                                    to ='/passaros'
+                                    label =' Catálogo de  Passáros'
+                                    onClick = {smDown ? toggleDrawerOpen: undefined}
+                                />*/}
                             </List>
 
                         </Box>
@@ -47,3 +87,5 @@ export const MenuLateral: React.FC <{children:React.ReactNode}> = ({ children })
          )
 
 };
+
+ 
