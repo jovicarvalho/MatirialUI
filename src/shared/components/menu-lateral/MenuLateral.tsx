@@ -1,12 +1,14 @@
-import { Box, Drawer, useTheme, Divider, List, ListItemButton, ListItemIcon, ListItemText, Icon } from '@mui/material';
+import { Box, Drawer, useTheme, Divider, List, ListItemButton, ListItemIcon, ListItemText, Icon, useMediaQuery } from '@mui/material';
 import React from 'react';
 
 export const MenuLateral: React.FC <{children:React.ReactNode}> = ({ children }) => {
      
     const theme = useTheme();
+    const smDown = useMediaQuery (theme.breakpoints.down('sm'));
+
         return (
             <>
-                <Drawer variant ='permanent'>
+                <Drawer open = {true} variant ={smDown ? 'temporary' : 'permanent'}>
 
                     <Box width = {theme.spacing(28)} height = '100%' display = 'flex' flexDirection ='column'>
  
