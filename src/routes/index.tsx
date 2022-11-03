@@ -14,12 +14,7 @@ export const Routes = ()=>{
                 label: 'Página Inicial',
                 icon: 'home',
                 path:'/pagina-inicial',
-            },
-            {
-                label: 'Pássaros',
-                icon: 'search',
-                path:'/catalogo-de-passaros',
-            },
+            }
         ])
 
     });
