@@ -66,12 +66,20 @@ export const MenuLateral: React.FC <{children:React.ReactNode}> = ({ children })
                                     onClick = {smDown ? toggleDrawerOpen: undefined}
                                 />))}
                                 
-                             {/*  <ListItemLink
-                                    icon='search'
+                             {  <ListItemLink
+                                    icon='content_paste_search_two+tone'
                                     to ='/passaros'
                                     label =' Catálogo de  Passáros'
                                     onClick = {smDown ? toggleDrawerOpen: undefined}
-                                />*/}
+                                    
+                                />}
+                                  {  <ListItemLink
+                                    icon='login'
+                                    to ='/passaros'
+                                    label =' Login'
+                                    onClick = {smDown ? toggleDrawerOpen: undefined}
+                                    
+                                />}
                             </List>
 
                         </Box>

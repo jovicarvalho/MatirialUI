@@ -7,16 +7,16 @@ import { FerramentasDaListagem, FerramentasDeDetalhe } from "../../shared/compon
 
 
 
-export const Dashboard = () =>{
+export const Catalogo = () =>{
 
     return (
-       <div style={{ 
-        backgroundImage: 'url(https://www.fotografemelhor.com.br/site/wp-content/uploads/2020/07/baixa_11_quinta-dupla_Ondrej-Prosicky_1078330286.jpg)' 
-    }} >
+       <div >
             <LayoutBaseDePagina 
-            titulo='PHEONIX FINDER' 
+            
+            titulo='Catalogo de Aves' 
             barraDeFerramentas={(
-                <FerramentasDeDetalhe  
+                <FerramentasDaListagem
+                mostrarInputBusca
                 />
             )} >
                 

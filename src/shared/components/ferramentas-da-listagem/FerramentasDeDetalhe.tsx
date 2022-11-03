@@ -1,8 +1,30 @@
-import {Divider, Button, Icon, Box, useTheme, Paper} from '@mui/material'
+import {Divider,Button, Icon, Box, useTheme, Paper} from '@mui/material'
+
+interface IFerramentasDaListagemProps {
+    textoBotaoNovo?:string;
+
+    mostrarBotaoNovo?: boolean;
+    mostrarBotaoVoltar?: boolean;
+    mostrarBotaoApagar?: boolean;
+    mostrarBotaoSalvar?: boolean;
+    mostrarBotaoSalvarEFechar?: boolean;
+
+    aoClickarEmNovo?: () => void;
+    aoClickarEmVoltar?:  () => void;
+    aoClickarEmApagar?:  () => void;
+    aoClickarEmSalvar?: () => void;
+    aoClikcarEmSalvarEFechar?:  () => void;
 
 
-export const  FerramentasDeDetalhe: React.FC = () => {
-const theme = useTheme();    
+
+}
+
+export const  FerramentasDeDetalhe: React.FC<IFerramentasDaListagemProps> = ( 
+
+) => {
+const theme = useTheme(); 
+
+
     return (
         <Box 
             height = {theme.spacing(5)}
@@ -39,7 +61,7 @@ const theme = useTheme();
                 startIcon = {<Icon>add</Icon>}
                 > Novo
             </Button>
-            <Divider variant ='middle'></Divider>          
+            <Divider  orientation='vertical' variant ='middle'  ></Divider>          
             
             <Button
                 color = 'primary' 

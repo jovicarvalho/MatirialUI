@@ -16,9 +16,7 @@ export const LayoutBaseDePagina: React.FC<ILayoutBaseDePaginaProps> = ({children
     const {toggleDrawerOpen} = useDrawerContext();
 
     return (
-        <Box style={{ 
-            backgroundImage: 'url(https://www.fotografemelhor.com.br/site/wp-content/uploads/2020/07/baixa_11_quinta-dupla_Ondrej-Prosicky_1078330286.jpg)' 
-        }} height = '100%' display = 'flex' flexDirection = 'column' gap={10}  >
+        <Box  height = '100%' display = 'flex' flexDirection = 'column' gap={10}  >
             <Box  padding = {1} display= 'flex' alignItems= 'center' height = {theme.spacing(smDown ? 6 : mdDown ? 8 : 12)} gap = {1}>
                 {smDown && (
                 <IconButton onClick={toggleDrawerOpen}>

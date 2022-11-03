@@ -1,7 +1,8 @@
 import { Button } from "@mui/material";
 import { useEffect } from "react";
 import { BrowserRouter,Routes as Switch, Route, Navigate } from "react-router-dom"
-import { Dashboard } from "../pages/dashboard/Dashboard"
+import { Dashboard} from "../pages/dashboard/Dashboard"
+import {Catalogo } from '../pages/dashboard/Catalogo'
 import { useAppThemeContext, useDrawerContext } from "../shared/contexts";
 
 export const Routes = ()=>{
@@ -29,6 +30,7 @@ export const Routes = ()=>{
                 }/>
 
                <Route path = '*' element={<Navigate to='/pagina-incial'/>}/>
+               <Route path = '/passaros' element={<Catalogo/>}/>
 
             </Switch>
         
